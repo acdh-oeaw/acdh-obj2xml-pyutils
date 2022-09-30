@@ -5,7 +5,7 @@ import re
 
 
 class ObjectToXml():
-    
+
     def make_xml(self, save):
         for x in self.br_input:
             templateLoader = jinja2.FileSystemLoader(searchpath="./")
@@ -50,5 +50,3 @@ class ObjectToXml():
             self.filename = "filename"
         else:
             self.filename = filename
-
-            
