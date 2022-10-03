@@ -1,5 +1,6 @@
 [![flake8 Lint](https://github.com/acdh-oeaw/acdh-obj2xml-pyutils/actions/workflows/lint.yml/badge.svg)](https://github.com/acdh-oeaw/acdh-obj2xml-pyutils/actions/workflows/lint.yml)
 [![Test](https://github.com/acdh-oeaw/acdh-obj2xml-pyutils/actions/workflows/test.yml/badge.svg)](https://github.com/acdh-oeaw/acdh-obj2xml-pyutils/actions/workflows/test.yml)
+[![codecov](https://codecov.io/github/acdh-oeaw/acdh-obj2xml-pyutils/branch/main/graph/badge.svg)](https://codecov.io/github/acdh-oeaw/acdh-obj2xml-pyutils)
 
 # acdh-obj2xml-pyutils
 python library to parse BaseRowClient of acdh-baserow-pyutils or any array of objects.

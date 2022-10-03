@@ -21,3 +21,11 @@ jobs:
         pip install -e .
     - name: Run tests
       run: coverage run -m pytest -v
+    - name: Create Coverage Report
+      run: coverage xml
+    - name: "Upload coverage to Codecov"
+      uses: codecov/codecov-action@v3
+      with:
+        file: ./coverage.xml
+        fail_ci_if_error: true
+        verbose: true
