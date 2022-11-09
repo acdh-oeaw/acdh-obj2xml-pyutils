@@ -27,4 +27,4 @@ class TestObjectToXml(unittest.TestCase):
         input = [{"id": "test1", "filename": "test1"}]
         obj_cl = ObjectToXml(br_input=input)
         tei =  obj_cl.make_xml_single(save=False)
-        self.assertTrue("test1" in str(tei[0]))
+        self.assertTrue("test1" in str(tei))

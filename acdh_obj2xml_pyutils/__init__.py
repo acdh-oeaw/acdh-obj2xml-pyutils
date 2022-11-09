@@ -26,7 +26,7 @@ class ObjectToXml():
                 with open(os.path.join(self.save_dir, filename), 'wb') as f:
                     f.write(ET.tostring(xml, pretty_print=True, encoding="utf-8"))
             yield ET.tostring(xml, pretty_print=True, encoding="utf-8")
-    
+
     def make_xml_single(self, save):
         templateLoader = jinja2.FileSystemLoader(searchpath="./")
         templateEnv = jinja2.Environment(loader=templateLoader)
@@ -40,7 +40,7 @@ class ObjectToXml():
             os.makedirs(self.save_dir, exist_ok=True)
             with open(os.path.join(self.save_dir, filename), 'wb') as f:
                 f.write(ET.tostring(xml, pretty_print=True, encoding="utf-8"))
-        return xml
+        return ET.tostring(xml, pretty_print=True, encoding="utf-8")
 
     def __init__(
         self,
