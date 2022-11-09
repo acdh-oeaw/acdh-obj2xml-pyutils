@@ -26,6 +26,21 @@ class ObjectToXml():
                 with open(os.path.join(self.save_dir, filename), 'wb') as f:
                     f.write(ET.tostring(xml, pretty_print=True, encoding="utf-8"))
             yield ET.tostring(xml, pretty_print=True, encoding="utf-8")
+    
+    def make_xml_single(self, save):
+        templateLoader = jinja2.FileSystemLoader(searchpath="./")
+        templateEnv = jinja2.Environment(loader=templateLoader)
+        template_file = self.template_path
+        template = templateEnv.get_template(template_file)
+        xml = template.render({"objects": self.br_input})
+        xml = re.sub(r'\s+$', '', xml, flags=re.MULTILINE)
+        xml = ET.fromstring(xml)
+        if save:
+            filename = f"{self.filename}.xml"
+            os.makedirs(self.save_dir, exist_ok=True)
+            with open(os.path.join(self.save_dir, filename), 'wb') as f:
+                f.write(ET.tostring(xml, pretty_print=True, encoding="utf-8"))
+        return xml
 
     def __init__(
         self,
