@@ -34,6 +34,7 @@ class ObjectToXml():
         template = templateEnv.get_template(template_file)
         xml = template.render({"objects": self.br_input})
         xml = re.sub(r'\s+$', '', xml, flags=re.MULTILINE)
+        xml = xml.replace("&", "&amp;")
         xml = ET.fromstring(xml)
         if save:
             filename = f"{self.filename}.xml"
