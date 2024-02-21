@@ -27,7 +27,7 @@ jobs:
         TWINE_USERNAME: ${{ secrets.PYPI_USER }}
         # TODO COOKIETEMPLE: Configure your secrets to enable automatic deployment to PyPi on releases
         # https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets
-        TWINE_PASSWORD: ${{ secrets.PYPI_PW }}
+        TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
       run: |
         python setup.py sdist bdist_wheel
         twine upload dist/*
