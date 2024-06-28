@@ -4,12 +4,22 @@ import jinja2
 import re
 
 
+def datetime_format(value, format="%H:%M %d-%m-%y"):
+    return value.strftime(format)
+
+
+def split_string(value, split_char=","):
+    return value.split(split_char)
+
+
 class ObjectToXml():
 
     def make_xml(self, save):
         for x in self.br_input:
             templateLoader = jinja2.FileSystemLoader(searchpath="./")
             templateEnv = jinja2.Environment(loader=templateLoader)
+            templateEnv.filters["datetime_format"] = datetime_format
+            templateEnv.filters["split_string"] = split_string
             template_file = self.template_path
             template = templateEnv.get_template(template_file)
             # templateLoader = jinja2.PackageLoader(
@@ -30,6 +40,8 @@ class ObjectToXml():
     def make_xml_single(self, save):
         templateLoader = jinja2.FileSystemLoader(searchpath="./")
         templateEnv = jinja2.Environment(loader=templateLoader)
+        templateEnv.filters["datetime_format"] = datetime_format
+        templateEnv.filters["split_string"] = split_string
         template_file = self.template_path
         template = templateEnv.get_template(template_file)
         xml = template.render({"objects": self.br_input})

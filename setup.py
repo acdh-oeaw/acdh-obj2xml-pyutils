@@ -18,8 +18,8 @@ setup_requirements = []
 test_requirements = []
 
 setup(
-    author="Daniel Stoxreiter",
-    author_email="daniel.stoxreiter@oeaw.ac.at",
+    author="Daniel Elsner",
+    author_email="daniel.elsner@oeaw.ac.at",
     python_requires=">=3.8",
     classifiers=[
         "Intended Audience :: Developers",
@@ -38,6 +38,6 @@ setup(
     test_suite="tests",
     tests_require=test_requirements,
     url="https://github.com/acdh-oeaw/acdh-obj2xml-pyutils",
-    version="0.0.4",
+    version="0.0.5",
     zip_safe=False,
 )
